@@ -5,6 +5,7 @@
 #include <ctime>
 #include <cstdlib>
 #include "cards.h"
+#include <vector>
 using namespace std;
 
 // Global constants (if any)
@@ -18,6 +19,13 @@ using namespace std;
 
 // Stub for main
 int main() {
-	/* --STATEMENTS-- */
+	Hand hand;
+	for (int i = 0; i < 5; ++i)
+		hand.update_hand();
+	hand.print_hand();
+	cout << hand.value_hand();
+	
+	
 	return 0;
 }
+

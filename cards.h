@@ -45,7 +45,7 @@ public:
 	// Converts card rank to number.
 	// The possible returns are: 1, 2, 3, 4, 5, 6, 7, 10, 11 and 12
 	int get_rank() const;
-
+	double get_value() const;
 	// Compare rank of two cards. E.g: Eight<Jack is true.
 	// Assume Ace is always 1. 
 	// Useful if you want to sort the cards.
@@ -61,18 +61,21 @@ class Hand {
 public:
 	// A vector of Cards
 	Hand();
-
 	// You decide what functions you'll need...
-
+	void print_hand();//print a players hand
+	void update_hand();//get another card
+	double value_hand() const;//return hand value
 private:
+	vector<Card> Player_Hand;
+	double value_of_hand = 0;
 	// You decide what fields you'll need...
 };
 
 
 class Player {
 public:
-	// Constructor. 
-	//    Assigns initial amount of money
+	//Constructor. 
+	//Assigns initial amount of money
 	Player(int m);
 
 	// You decide what functions you'll need...
