@@ -66,22 +66,22 @@ public:
 	void update_hand();//get another card
 	double value_hand() const;//return hand value
 private:
-	vector<Card> Player_Hand;
-	double value_of_hand = 0;
+	vector<Card> Player_Hand;//store players cards
+	double value_of_hand = 0;//store value of hand
 	// You decide what fields you'll need...
 };
 
-
+static int player_id = 1;
 class Player {
 public:
 	//Constructor. 
 	//Assigns initial amount of money
-	Player(int m);
-
+	Player(int m = 0);
+	int& cash();
 	// You decide what functions you'll need...
 
 private:
-	int money;
+	int money = 0;
 	// You decide what extra fields (if any) you'll need...
 };
 
