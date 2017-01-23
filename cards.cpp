@@ -1,6 +1,7 @@
 #include "cards.h"
 #include <cstdlib>
 #include <iostream>
+#include <iomanip>
 
 /*
 You might or might not need these two extra libraries
@@ -148,7 +149,7 @@ Hand::Hand() {
 void Hand::print_hand() {
 	//output players hand
 	for (size_t i = 0; i < Player_Hand.size(); ++i)
-		cout << Player_Hand[i].get_spanish_rank() << "\n";
+		cout << setw(10) << Player_Hand[i].get_spanish_rank() << "\n";
 }
 //get another card
 void Hand::update_hand(){
@@ -160,6 +161,10 @@ void Hand::update_hand(){
 //return the value of the hand
 double Hand::value_hand() const {
 	return value_of_hand;
+}
+void Hand::reset_hand() {
+	Player_Hand.clear();
+	update_hand();
 }
 /* *************************************************
 Player class

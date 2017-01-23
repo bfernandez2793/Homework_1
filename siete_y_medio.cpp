@@ -13,16 +13,30 @@ using namespace std;
 // Stub for main
 int main() {
 	
-	/*Hand hand;
-	for (int i = 0; i < 5; ++i)
-		hand.update_hand();
-	hand.print_hand();
-	cout << hand.value_hand();
-	*/
-	Player player1;
-	cout << player1.cash() << "\n";
-	player1.cash() = 5;
-	cout << player1.cash() << "\n";
+	
+	Player player1(100);
+	char ans = 'y';
+	while (player1.cash() > 0)
+	{ 
+	
+		while (ans = 'y' && player1.value_hand() < 7.5)
+		{
+			cout << "Cards:	\n";
+			player1.print_hand();
+			cout << "would you like another card?";
+			cin >> ans;
+			if (ans == 'y')
+			{
+				player1.update_hand();
+				cout << "value: " << player1.value_hand() << "\n";
+			}
+		}
+		player1.cash() -= 10;
+		cout << "Cash:  " << player1.cash() << "\n";
+	}
+
+	
+
 	return 0;
 }
 

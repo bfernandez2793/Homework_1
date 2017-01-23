@@ -65,6 +65,7 @@ public:
 	void print_hand();//print a players hand
 	void update_hand();//get another card
 	double value_hand() const;//return hand value
+	void reset_hand();
 private:
 	vector<Card> Player_Hand;//store players cards
 	double value_of_hand = 0;//store value of hand
@@ -72,7 +73,7 @@ private:
 };
 
 static int player_id = 1;
-class Player {
+class Player: public Hand{
 public:
 	//Constructor. 
 	//Assigns initial amount of money
