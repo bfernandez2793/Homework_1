@@ -149,7 +149,7 @@ Hand::Hand() {
 void Hand::print_hand() {
 	//output players hand
 	for (size_t i = 0; i < Player_Hand.size(); ++i)
-		cout << setw(10) << Player_Hand[i].get_spanish_rank() << "\n";
+		cout << "\t" << Player_Hand[i].get_spanish_rank() << "\n";
 }
 //get another card
 void Hand::update_hand(){
@@ -164,6 +164,7 @@ double Hand::value_hand() const {
 }
 void Hand::reset_hand() {
 	Player_Hand.clear();
+	value_of_hand = 0;
 	update_hand();
 }
 /* *************************************************

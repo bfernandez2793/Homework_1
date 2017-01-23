@@ -16,23 +16,35 @@ int main() {
 	
 	Player player1(100);
 	char ans = 'y';
+	int bet = 0;
 	while (player1.cash() > 0)
-	{ 
-	
+	{
+		do  
+		{
+			cout << "Cash: " << player1.cash() << ". Enter Bet: ";
+			cin >> bet;
+			cin.ignore(32767, '\n');
+		} while (bet > player1.cash());
+
 		while (ans = 'y' && player1.value_hand() < 7.5)
 		{
 			cout << "Cards:	\n";
 			player1.print_hand();
-			cout << "would you like another card?";
-			cin >> ans;
+			do 
+			{
+				cout << "Your total is: " << player1.value_hand() << ". " << "Do you want another card?";
+				cin >> ans;
+				cin.ignore(32767, '\n');
+			} while ((ans != 'y') &&  (ans != 'n'));
 			if (ans == 'y')
 			{
 				player1.update_hand();
-				cout << "value: " << player1.value_hand() << "\n";
 			}
+			else
+				break;
 		}
+		player1.reset_hand();
 		player1.cash() -= 10;
-		cout << "Cash:  " << player1.cash() << "\n";
 	}
 
 	
