@@ -162,6 +162,7 @@ void Hand::update_hand(){
 double Hand::value_hand() const {
 	return value_of_hand;
 }
+
 void Hand::reset_hand() {
 	Player_Hand.clear();
 	value_of_hand = 0;
