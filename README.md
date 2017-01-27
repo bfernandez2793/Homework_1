@@ -9,4 +9,4 @@ The files include:
 
   cards.h: a complete interface for the Card class plus templates for the Hand and Player interfaces.  
   cards.cpp:  an almost complete implementation of the Card class.
-  siete_y_medio.cpp: some suggested libraries plus a stub for the main routine
+  siete_y_medio.cpp: some suggested libraries plus a stub for the main routine.
