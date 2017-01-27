@@ -5,7 +5,8 @@ which is very similar in nature to the casino game of Blackjack (also known as 2
 The goal of the game is to get cards whose total value comes the closest to 71/2 without going over it. 
 Getting a card total over 71/2 is called "busting". 
 
-The files include 
-\t cards.h: a complete interface for the Card class plus templates for the Hand and Player interfaces.  
-\t cards.cpp:  an almost complete implementation of the Card class.
-\t siete_y_medio.cpp: some suggested libraries plus a stub for the main routine
+The files include:
+
+  cards.h: a complete interface for the Card class plus templates for the Hand and Player interfaces.  
+  cards.cpp:  an almost complete implementation of the Card class.
+  siete_y_medio.cpp: some suggested libraries plus a stub for the main routine
