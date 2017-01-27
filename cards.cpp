@@ -45,7 +45,6 @@ Card::Card() {
 	default: break;
 	}
 }
-
 // Accessor: returns a string with the suit of the card in Spanish 
 string Card::get_spanish_suit() const {
 	string suitName;
@@ -66,7 +65,6 @@ string Card::get_spanish_suit() const {
 	}
 	return suitName;
 }
-
 // Accessor: returns a string with the rank of the card in Spanish 
 string Card::get_spanish_rank() const {
 	string rankName;
@@ -134,9 +132,6 @@ double Card::get_value() const {
 bool Card::operator < (Card card2) const {
 	return rank < card2.rank;
 }
-
-
-
 /* *************************************************
 Hand class
 ************************************************* */
@@ -145,28 +140,35 @@ Hand class
 Hand::Hand() {
 	update_hand();
 }
-//print the names of cards in hand
-void Hand::print_hand() {
-	//output players hand
-	for (size_t i = 0; i < Player_Hand.size(); ++i)
-		cout << "\t" << Player_Hand[i].get_spanish_rank() << "\n";
-}
 //get another card
 void Hand::update_hand(){
 	//get another card
 	Card new_card;
-	Player_Hand.push_back(new_card);
+	_hand.push_back(new_card);
 	value_of_hand += new_card.get_value();
 }
 //return the value of the hand
+void Hand::print_hand() {
+	//output players hand
+	for (size_t i = 0; i < _hand.size(); ++i)
+		cout << "\t" << _hand[i].get_spanish_rank() << "\n";
+}
 double Hand::value_hand() const {
 	return value_of_hand;
 }
-
+//reset the hand
 void Hand::reset_hand() {
-	Player_Hand.clear();
+	_hand.clear();
 	value_of_hand = 0;
 	update_hand();
+}
+//print hand
+ostream& operator<<(ostream& out, const Hand& hand)
+{
+	//output players hand
+	for (size_t i = 0; i < hand._hand.size(); ++i)
+		out << "\t" << hand._hand[i].get_spanish_rank() << "\n";
+	return out;
 }
 /* *************************************************
 Player class

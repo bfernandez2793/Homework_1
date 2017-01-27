@@ -62,17 +62,18 @@ public:
 	// A vector of Cards
 	Hand();
 	// You decide what functions you'll need...
-	void print_hand();//print a players hand
 	void update_hand();//get another card
 	double value_hand() const;//return hand value
-	void reset_hand();
+	void reset_hand();//reset hand
+	void print_hand();//print hand
+	friend ostream& operator<<(ostream& out,const Hand& hand);//print players hand
 private:
-	vector<Card> Player_Hand;//store players cards
+	vector<Card> _hand;//store players cards
 	double value_of_hand = 0;//store value of hand
 	// You decide what fields you'll need...
 };
 
-static int player_id = 1;
+
 class Player: public Hand{
 public:
 	//Constructor. 
@@ -80,7 +81,7 @@ public:
 	Player(int m = 0);
 	int& cash();
 	// You decide what functions you'll need...
-
+	
 private:
 	int money = 0;
 	// You decide what extra fields (if any) you'll need...

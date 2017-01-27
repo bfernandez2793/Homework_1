@@ -11,8 +11,9 @@ using namespace std;
 // Non member functions declarations (if any)
 // Non member functions implementations (if any)
 // Stub for main
-int main() {
-	
+
+void play_game(ostream& out)
+{
 	Player player1(100);//inititalize player with 100 dollars
 	Player dealer;
 	char ans = 'y';
@@ -25,7 +26,7 @@ int main() {
 		*************************************************/
 		do
 		{
-			cout << "Cash: " << player1.cash() << ". Enter Bet: ";
+			out << "Cash: " << player1.cash() << ". Enter Bet: ";
 			cin >> bet;
 			cin.clear();
 			cin.ignore(32767, '\n');
@@ -33,11 +34,10 @@ int main() {
 
 		while (ans = 'y' && player1.value_hand() < 7.5)
 		{
-			cout << "Your Cards:	\n";
-			player1.print_hand();
+			out << "Your Cards:	\n" << player1;
 			do
 			{
-				cout << "Your total is: " << player1.value_hand() << ". " << "Do you want another card?";
+				out << "Your total is: " << player1.value_hand() << ". " << "Do you want another card?";
 				cin >> ans;
 				cin.ignore(32767, '\n');
 			} while ((ans != 'y') && (ans != 'n'));
@@ -49,32 +49,30 @@ int main() {
 			else
 				break;
 		}
-		cout << "Your Cards:	\n";
+		out << "Your Cards:	\n";
 		player1.print_hand();
-		cout << "Your total is: " << player1.value_hand() << "\n";
+		out << "Your total is: " << player1.value_hand() << "\n";
 		/***********************************************************
 		DEALER
 		***********************************************************/
-		
-		while (dealer.value_hand() < 5.5 )
+
+		while (dealer.value_hand() < 5.5)
 		{
-			cout << "Dealer's cards: \n";
-			dealer.print_hand();
-			cout << "The dealer's total is: " << dealer.value_hand() << "\n";
+			out << "Dealer's cards: \n" << dealer;
+			out << "The dealer's total is: " << dealer.value_hand() << "\n";
 			dealer.update_hand();
 		}
-		cout << "Dealer's cards: \n";
-		dealer.print_hand();
-		cout << "The dealer's total is: " << dealer.value_hand() << "\n";
+		out << "Dealer's cards: \n" << dealer;
+		out << "The dealer's total is: " << dealer.value_hand() << "\n";
 
 		if (player1.value_hand() > 7.5)
 		{
-			cout << "Dealer Wins \n";
+			out << "Dealer Wins \n";
 			player1.cash() -= bet;
 		}
 		else if (dealer.value_hand() > 7.5)
 		{
-			cout << "You Win \n";
+			out << "You Win \n";
 			loses -= bet;
 			player1.cash() += bet;
 		}
@@ -82,22 +80,26 @@ int main() {
 		{
 			if (player1.value_hand() < dealer.value_hand())
 			{
-				cout << "Dealer Wins \n";
+				out << "Dealer Wins \n";
 				player1.cash() -= bet;
 			}
 			else if (player1.value_hand() == dealer.value_hand())
-				cout << "Tie! Nobody Wins! \n";
+				out << "Tie! Nobody Wins! \n";
 			else
 			{
-				cout << "You Win \n";
+				out << "You Win \n";
 				player1.cash() += bet;
-				loses -=  bet;
+				loses -= bet;
 			}
 		}
 		player1.reset_hand();
 		dealer.reset_hand();
 	}
-	cout << "\n\n Game Over!!!\n";
+	out << "\n\n Game Over!!!\n";
+}
+int main() {
+	
+	play_game(cout);
 	return 0;
 }
 
